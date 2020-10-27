@@ -5,9 +5,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { Main } from "./main/main.component";
+import { Recipe } from "./recipe/recipe.component";
 
 @NgModule({
-  declarations: [AppComponent, Main],
+  declarations: [AppComponent, Main, Recipe],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
