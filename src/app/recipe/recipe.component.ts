@@ -10,8 +10,7 @@ import { Recipe as RecipeModel } from "../model/recipe";
 export class Recipe implements OnInit {
   constructor(private http: HttpClient) {}
   recipes: RecipeModel[] = [];
-  src: string =
-    "home/justyna/Documents/STUDIA/RECIPE/images/tarta_czekoladowa.jpg";
+
   ngOnInit() {
     this.http
       .get<RecipeModel[]>(`${GlobalConstants.apiURL}/recipes`)
