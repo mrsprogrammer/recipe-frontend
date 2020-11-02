@@ -6,6 +6,7 @@ import { Recipe as RecipeModel } from "../model/recipe";
 @Component({
   selector: "app-recipe",
   templateUrl: "./recipe.component.html",
+  styleUrls: ["./recipe.component.scss"],
 })
 export class Recipe implements OnInit {
   constructor(private http: HttpClient) {}
@@ -16,9 +17,10 @@ export class Recipe implements OnInit {
       .get<RecipeModel[]>(`${GlobalConstants.apiURL}/recipes`)
       .subscribe((recipes) => {
         console.log(recipes);
-        this.recipes = recipes.map(({ image, ...rest }) => ({
+        this.recipes = recipes.map(({ image, method, ...rest }) => ({
           ...rest,
           image: `${GlobalConstants.imagesURL}/${image}`,
+          method: method.substr(0, 250) + "...",
         }));
       });
   }

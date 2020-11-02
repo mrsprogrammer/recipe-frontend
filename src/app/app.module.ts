@@ -1,9 +1,7 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
-import { MatCardModule } from "@angular/material/card";
-import { MatButtonModule } from "@angular/material/button";
 import { AppRoutingModule } from "./app-routing.module";
 // components
 import { AppComponent } from "./app.component";
@@ -11,11 +9,14 @@ import { Main } from "./main/main.component";
 import { Recipe } from "./recipe/recipe.component";
 import { MenuComponent } from "./layout/menu/menu.component";
 // material
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
+import { MatGridListModule } from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [AppComponent, Main, Recipe, MenuComponent],
@@ -25,13 +26,14 @@ import { MatListModule } from "@angular/material/list";
     HttpClientModule,
     NoopAnimationsModule,
     // material modules
-    MatCardModule,
-    MatButtonModule,
     LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
+    MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
     MatIconModule,
     MatListModule,
+    MatSidenavModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

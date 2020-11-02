@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: "all",
     component: Recipe,
-    data: { title: "Cookbook" },
+    data: { title: "Przepisy kulinarne" },
   },
 ];
 
