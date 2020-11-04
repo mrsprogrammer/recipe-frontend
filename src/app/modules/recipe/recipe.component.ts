@@ -1,10 +1,10 @@
 import { Component, NgModule, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { GlobalConstants } from "../common/global-constants";
-import { Recipe as RecipeModel } from "../model/recipe";
+import { GlobalConstants } from "../../common/global-constants";
+import { Recipe as RecipeModel } from "../../model/recipe";
 
 @Component({
-  selector: "app-recipe",
+  selector: "recipe",
   templateUrl: "./recipe.component.html",
   styleUrls: ["./recipe.component.scss"],
 })

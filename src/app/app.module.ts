@@ -6,8 +6,10 @@ import { AppRoutingModule } from "./app-routing.module";
 // components
 import { AppComponent } from "./app.component";
 import { Main } from "./main/main.component";
-import { Recipe } from "./recipe/recipe.component";
 import { MenuComponent } from "./layout/menu/menu.component";
+// modules
+import { Recipe } from "./modules/recipe/recipe.component";
+import { RecipeId } from "./modules/recipeId/recipeId.component";
 // material
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
@@ -19,7 +21,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatGridListModule } from "@angular/material/grid-list";
 
 @NgModule({
-  declarations: [AppComponent, Main, Recipe, MenuComponent],
+  declarations: [AppComponent, Main, Recipe, RecipeId, MenuComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -2,7 +2,8 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { APP_BASE_HREF } from "@angular/common";
 import { Main } from "./main/main.component";
-import { Recipe } from "./recipe/recipe.component";
+import { Recipe } from "./modules/recipe/recipe.component";
+import { RecipeId } from "./modules/recipeId/recipeId.component";
 
 const routes: Routes = [
   {
@@ -11,7 +12,12 @@ const routes: Routes = [
     data: { title: "Main" },
   },
   {
-    path: "all",
+    path: ":id",
+    component: RecipeId,
+    data: { title: "Przepis" },
+  },
+  {
+    path: "",
     component: Recipe,
     data: { title: "Przepisy kulinarne" },
   },

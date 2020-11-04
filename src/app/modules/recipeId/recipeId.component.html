@@ -1,0 +1,24 @@
+<div class="grid-container">
+  <div class="grid-item grid-item__colspan-4">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ recipe.title }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{ recipe.image }}" alt="{{ recipe.title }}" />
+    </mat-card>
+  </div>
+</div>
+<div class="grid-container">
+  <div class="grid-item grid-item__colspan-4">
+    <mat-card>
+      <mat-card-content>
+        <p>
+          {{ recipe.ingredients }}
+        </p>
+        <p>
+          {{ recipe.method }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
