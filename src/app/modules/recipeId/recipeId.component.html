@@ -22,3 +22,12 @@
     </mat-card>
   </div>
 </div>
+<div class="grid-container">
+  <div class="grid-item grid-item__colspan-4">
+    <mat-card>
+      <mat-card-content *ngFor="let comment of recipe.comments; index as i">
+        <p>{{ comment.content }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
