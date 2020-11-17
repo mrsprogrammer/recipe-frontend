@@ -2,8 +2,9 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { APP_BASE_HREF } from "@angular/common";
 import { Main } from "./main/main.component";
+import { Recipes } from "./modules/recipes/recipes.component";
 import { Recipe } from "./modules/recipe/recipe.component";
-import { RecipeId } from "./modules/recipeId/recipeId.component";
+import { GlobalConstants } from "./common/global-constants";
 
 const routes: Routes = [
   {
@@ -13,12 +14,12 @@ const routes: Routes = [
   },
   {
     path: ":id",
-    component: RecipeId,
+    component: Recipe,
     data: { title: "Przepis" },
   },
   {
     path: "",
-    component: Recipe,
+    component: Recipes,
     data: { title: "Przepisy kulinarne" },
   },
 ];
@@ -26,6 +27,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [{ provide: APP_BASE_HREF, useValue: "/recipe" }],
+  providers: [{ provide: APP_BASE_HREF, useValue: GlobalConstants.baseHref }],
 })
 export class AppRoutingModule {}

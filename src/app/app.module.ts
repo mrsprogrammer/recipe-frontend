@@ -8,8 +8,8 @@ import { AppComponent } from "./app.component";
 import { Main } from "./main/main.component";
 import { MenuComponent } from "./layout/menu/menu.component";
 // modules
+import { Recipes } from "./modules/recipes/recipes.component";
 import { Recipe } from "./modules/recipe/recipe.component";
-import { RecipeId } from "./modules/recipeId/recipeId.component";
 // material
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
@@ -21,7 +21,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatGridListModule } from "@angular/material/grid-list";
 
 @NgModule({
-  declarations: [AppComponent, Main, Recipe, RecipeId, MenuComponent],
+  declarations: [AppComponent, Main, Recipes, Recipe, MenuComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

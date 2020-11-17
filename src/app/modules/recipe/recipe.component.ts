@@ -1,7 +1,9 @@
 import { Component, NgModule, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute } from "@angular/router";
+import { switchMap } from "rxjs/operators";
 import { GlobalConstants } from "../../common/global-constants";
 import { Recipe as RecipeModel } from "../../model/recipe";
+import { RecipeService } from "./recipe.service";
 
 @Component({
   selector: "recipe",
@@ -9,19 +11,18 @@ import { Recipe as RecipeModel } from "../../model/recipe";
   styleUrls: ["./recipe.component.scss"],
 })
 export class Recipe implements OnInit {
-  constructor(private http: HttpClient) {}
-  recipes: RecipeModel[] = [];
+  recipe: RecipeModel;
 
-  ngOnInit() {
-    this.http
-      .get<RecipeModel[]>(`${GlobalConstants.apiURL}/recipes`)
-      .subscribe((recipes) => {
-        console.log(recipes);
-        this.recipes = recipes.map(({ image, method, ...rest }) => ({
+  constructor(private route: ActivatedRoute, recipeService: RecipeService) {
+    this.route.params
+      .pipe(switchMap(({ id }) => recipeService.getRecipe(id)))
+      .subscribe(({ image, ...rest }) => {
+        this.recipe = {
           ...rest,
           image: `${GlobalConstants.imagesURL}/${image}`,
-          method: method.substr(0, 250) + "...",
-        }));
+        };
       });
   }
+
+  ngOnInit() {}
 }

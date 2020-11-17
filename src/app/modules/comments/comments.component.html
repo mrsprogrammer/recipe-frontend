@@ -1,0 +1,5 @@
+<mat-card>
+  <mat-card-content *ngFor="let comment of recipe.comments; index as i">
+    <p>{{ comment.content }}</p>
+  </mat-card-content>
+</mat-card>
