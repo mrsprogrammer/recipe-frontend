@@ -1,5 +1,16 @@
 <mat-card>
-  <mat-card-content *ngFor="let comment of recipe.comments; index as i">
-    <p>{{ comment.content }}</p>
+  <mat-card-content>
+    <mat-list class="list">
+      <mat-list-item *ngFor="let comment of comments; index as i">
+        {{ comment.content }}
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+    <comment-add *ngIf="isCommentAddFormOpened"></comment-add>
   </mat-card-content>
+  <mat-card-actions class="actions">
+    <button (click)="openCommentAddForm()" mat-raised-button color="primary">
+      Dodaj komentarz
+    </button>
+  </mat-card-actions>
 </mat-card>

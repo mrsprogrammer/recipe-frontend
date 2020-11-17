@@ -1,36 +1,31 @@
-<div class="grid-container">
-  <div class="grid-item grid-item__colspan-4">
-    <mat-card class="header">
-      <mat-card-title class="title">{{ recipe.title }}</mat-card-title>
-      <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="image" />
-    </mat-card>
+<div *ngIf="recipe">
+  <div class="grid-container">
+    <div class="grid-item grid-item__colspan-4">
+      <mat-card class="header">
+        <mat-card-title class="title">{{ recipe.title }}</mat-card-title>
+        <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="image" />
+      </mat-card>
+    </div>
   </div>
-</div>
-<div class="grid-container">
-  <div class="grid-item grid-item__colspan-4">
-    <mat-card>
-      <mat-card-content>
-        <p class="subheader">Składniki:</p>
-        <p class="text">
-          {{ recipe.ingredients }}
-        </p>
-        <p class="subheader">Wykonanie:</p>
-        <p class="text">
-          {{ recipe.method }}
-        </p>
-      </mat-card-content>
-    </mat-card>
+  <div class="grid-container">
+    <div class="grid-item grid-item__colspan-4">
+      <mat-card>
+        <mat-card-content>
+          <p class="subheader">Składniki:</p>
+          <p class="text">
+            {{ recipe.ingredients }}
+          </p>
+          <p class="subheader">Wykonanie:</p>
+          <p class="text">
+            {{ recipe.method }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
-</div>
-<div class="grid-container">
-  <div class="grid-item grid-item__colspan-4">
-    <mat-card>
-      <mat-card-content>
-        <p *ngFor="let comment of recipe.comments; index as i">
-          {{ comment.content }}
-        </p>
-        <!-- <comments /> -->
-      </mat-card-content>
-    </mat-card>
+  <div class="grid-container">
+    <div class="grid-item grid-item__colspan-4">
+      <comments [comments]="recipe.comments"></comments>
+    </div>
   </div>
 </div>
