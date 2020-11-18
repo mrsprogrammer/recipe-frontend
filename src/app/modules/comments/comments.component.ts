@@ -7,6 +7,7 @@ import { Comment as CommentModel } from "../../model/comment";
   styleUrls: ["./comments.component.scss"],
 })
 export class Comments implements OnInit {
+  @Input() recipeId: string;
   @Input() comments: CommentModel[];
   isCommentAddFormOpened: boolean = false;
 

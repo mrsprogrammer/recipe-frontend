@@ -6,7 +6,10 @@
         <mat-divider></mat-divider>
       </mat-list-item>
     </mat-list>
-    <comment-add *ngIf="isCommentAddFormOpened"></comment-add>
+    <comment-add
+      [recipeId]="recipeId"
+      *ngIf="isCommentAddFormOpened"
+    ></comment-add>
   </mat-card-content>
   <mat-card-actions class="actions">
     <button (click)="openCommentAddForm()" mat-raised-button color="primary">

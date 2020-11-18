@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { CommentAddService } from "./comment-add.service";
 
@@ -8,6 +8,7 @@ import { CommentAddService } from "./comment-add.service";
   styleUrls: ["./comment-add.component.scss"],
 })
 export class CommentAdd {
+  @Input() recipeId: string;
   form: FormGroup;
   commentAddService: CommentAddService;
   constructor(fb: FormBuilder, commentAddService: CommentAddService) {
@@ -18,6 +19,8 @@ export class CommentAdd {
   }
 
   onSubmit() {
-    this.commentAddService.addComment(this.form.value).subscribe();
+    this.commentAddService
+      .addComment({ id_recipe: this.recipeId.toString(), ...this.form.value })
+      .subscribe();
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { GlobalConstants } from "../../common/global-constants";
+import { Comment } from "../../model/comment";
 
 @Injectable({
   providedIn: "root",
@@ -8,8 +9,6 @@ import { GlobalConstants } from "../../common/global-constants";
 export class CommentAddService {
   constructor(private http: HttpClient) {}
 
-  addComment = (values: string) => {
-    console.log("addComment");
-    return this.http.post(`${GlobalConstants.apiURL}/recipes/create`, values);
-  };
+  addComment = (payload: Pick<Comment, "id_recipe" | "content">) =>
+    this.http.post(`${GlobalConstants.apiURL}/comments/create`, payload);
 }
