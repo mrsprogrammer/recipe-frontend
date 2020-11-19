@@ -9,6 +9,7 @@
     <comment-add
       [recipeId]="recipeId"
       *ngIf="isCommentAddFormOpened"
+      (addCommentEvent)="addComment($event)"
     ></comment-add>
   </mat-card-content>
   <mat-card-actions class="actions">

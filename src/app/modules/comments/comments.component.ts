@@ -15,6 +15,11 @@ export class Comments implements OnInit {
 
   ngOnInit() {}
 
+  addComment(comment: CommentModel) {
+    this.comments.push(comment);
+    this.isCommentAddFormOpened = false;
+  }
+
   openCommentAddForm() {
     this.isCommentAddFormOpened = true;
   }

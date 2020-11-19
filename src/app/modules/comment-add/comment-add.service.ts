@@ -10,5 +10,8 @@ export class CommentAddService {
   constructor(private http: HttpClient) {}
 
   addComment = (payload: Pick<Comment, "id_recipe" | "content">) =>
-    this.http.post(`${GlobalConstants.apiURL}/comments/create`, payload);
+    this.http.post<Comment>(
+      `${GlobalConstants.apiURL}/comments/create`,
+      payload
+    );
 }
