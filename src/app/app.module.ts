@@ -6,7 +6,6 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 // components
 import { AppComponent } from "./app.component";
-import { Main } from "./main/main.component";
 import { MenuComponent } from "./layout/menu/menu.component";
 // modules
 import { CommentAdd } from "./modules/comment-add/comment-add.component";
@@ -30,7 +29,6 @@ import { MatInputModule } from "@angular/material/input";
     AppComponent,
     CommentAdd,
     Comments,
-    Main,
     Recipes,
     Recipe,
     MenuComponent,
