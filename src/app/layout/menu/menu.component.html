@@ -13,15 +13,16 @@
       >
     </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/">Strona główna</a>
-      <a mat-list-item routerLink="/main">Main</a>
+      <a mat-list-item routerLink="/">Wszystkie przepisy</a>
+      <a mat-list-item routerLink="/cakes">Ciasta</a>
+      <a mat-list-item routerLink="/salads">Sałatki</a>
+      <a mat-list-item routerLink="/soups">Zupy</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
         type="button"
-        aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
         *ngIf="isHandset$ | async"

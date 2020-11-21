@@ -9,6 +9,8 @@ import { Recipe as RecipeModel } from "../../model/recipe";
 export class RecipesService {
   constructor(private http: HttpClient) {}
 
-  getRecipes = () =>
-    this.http.get<RecipeModel[]>(`${GlobalConstants.apiURL}/recipes`);
+  getRecipes = (category?: RecipeModel["categoryName"]) =>
+    this.http.get<RecipeModel[]>(
+      `${GlobalConstants.apiURL}/recipes/${category || ""}`
+    );
 }

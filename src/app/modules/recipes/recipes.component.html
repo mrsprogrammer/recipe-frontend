@@ -1,6 +1,11 @@
 <div class="grid-container">
   <div class="grid-item" *ngFor="let recipe of recipes; index as i">
-    <a mat-list-item routerLink="{{ recipe.id }}">
+    <a
+      mat-list-item
+      [routerLink]="
+        categoryRouteParam ? [recipe.id] : [recipe.categoryName, recipe.id]
+      "
+    >
       <mat-card class="card">
         <mat-card-header>
           <mat-card-title>{{ recipe.title }}</mat-card-title>

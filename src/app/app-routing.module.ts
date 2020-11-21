@@ -7,9 +7,13 @@ import { GlobalConstants } from "./common/global-constants";
 
 const routes: Routes = [
   {
-    path: ":id",
+    path: ":category/:id",
     component: Recipe,
     data: { title: "Przepis" },
+  },
+  {
+    path: ":category",
+    component: Recipes,
   },
   {
     path: "",
