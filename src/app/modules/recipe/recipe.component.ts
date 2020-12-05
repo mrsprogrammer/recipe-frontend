@@ -9,13 +9,17 @@ import { RecipeService } from "./recipe.service";
   selector: "recipe",
   templateUrl: "./recipe.component.html",
   styleUrls: ["./recipe.component.scss"],
+  providers: [RecipeService],
 })
 export class Recipe implements OnInit {
   recipe: RecipeModel;
 
-  constructor(private route: ActivatedRoute, recipeService: RecipeService) {
+  constructor(
+    private route: ActivatedRoute,
+    private recipeService: RecipeService
+  ) {
     this.route.params
-      .pipe(switchMap(({ id }) => recipeService.getRecipe(id)))
+      .pipe(switchMap(({ id }) => this.recipeService.getRecipe(id)))
       .subscribe(({ image, ...rest }) => {
         this.recipe = {
           ...rest,

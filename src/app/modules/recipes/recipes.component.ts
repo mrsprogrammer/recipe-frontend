@@ -9,17 +9,21 @@ import { RecipesService } from "./recipes.service";
   selector: "recipes",
   templateUrl: "./recipes.component.html",
   styleUrls: ["./recipes.component.scss"],
+  providers: [RecipesService],
 })
 export class Recipes {
   recipes: RecipeModel[] = [];
   categoryRouteParam?: RecipeModel["categoryName"];
 
-  constructor(private route: ActivatedRoute, recipesService: RecipesService) {
+  constructor(
+    private route: ActivatedRoute,
+    private recipesService: RecipesService
+  ) {
     this.route.params
       .pipe(
         switchMap(({ category }) => {
           this.categoryRouteParam = category;
-          return recipesService.getRecipes(category);
+          return this.recipesService.getRecipes(category);
         })
       )
       .subscribe((recipes) => {

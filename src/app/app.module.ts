@@ -10,8 +10,11 @@ import { MenuComponent } from "./layout/menu/menu.component";
 // modules
 import { CommentAdd } from "./modules/comment-add/comment-add.component";
 import { Comments } from "./modules/comments/comments.component";
+import { Login } from "./modules/login/login.component";
 import { Recipes } from "./modules/recipes/recipes.component";
 import { Recipe } from "./modules/recipe/recipe.component";
+import { AuthGuardService } from "./modules/auth/auth-guard.service";
+import { AuthService } from "./modules/auth/auth.service";
 // material
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
@@ -23,6 +26,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { NotFoundComponent } from "./modules/not-found/not-found.component";
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { MatInputModule } from "@angular/material/input";
     Recipes,
     Recipe,
     MenuComponent,
+    Login,
+    NotFoundComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -52,7 +58,7 @@ import { MatInputModule } from "@angular/material/input";
     MatSidenavModule,
     MatToolbarModule,
   ],
-  providers: [],
+  providers: [AuthGuardService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

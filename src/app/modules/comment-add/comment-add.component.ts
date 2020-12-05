@@ -1,25 +1,24 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { CommentAddService } from "./comment-add.service";
 import { Comment } from "../../model/comment";
+import { CommentAddService } from "./comment-add.service";
 
 @Component({
   selector: "comment-add",
   templateUrl: "./comment-add.component.html",
   styleUrls: ["./comment-add.component.scss"],
+  providers: [CommentAddService],
 })
 export class CommentAdd {
   @Input() recipeId: string;
   @Output() addCommentEvent = new EventEmitter<Comment>();
 
   form: FormGroup;
-  commentAddService: CommentAddService;
 
-  constructor(fb: FormBuilder, commentAddService: CommentAddService) {
+  constructor(fb: FormBuilder, private commentAddService: CommentAddService) {
     this.form = fb.group({
       content: ["", Validators.required],
     });
-    this.commentAddService = commentAddService;
   }
 
   onSubmit() {
