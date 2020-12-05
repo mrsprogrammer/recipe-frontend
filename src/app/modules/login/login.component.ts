@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from "../auth/auth.service";
 
@@ -10,33 +15,34 @@ import { AuthService } from "../auth/auth.service";
 })
 export class LoginComponent implements OnInit {
   invalidCredentialMsg: string;
-  username: string;
-  password: string;
-  retUrl: string = "home";
+  retUrl: string = "categories";
+  form: FormGroup;
 
   constructor(
+    private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+    this.form = this.fb.group({
+      login: ["", Validators.required],
+      password: ["", Validators.required],
+    });
+  }
 
   ngOnInit() {
     this.activatedRoute.queryParamMap.subscribe((params) => {
       this.retUrl = params.get("retUrl");
-      console.log("LoginComponent/ngOnInit " + this.retUrl);
     });
   }
 
-  onFormSubmit(loginForm) {
-    this.authService
-      .login(loginForm.value.username, loginForm.value.password)
-      .subscribe((data) => {
-        console.log("return to " + this.retUrl);
-        if (this.retUrl != null) {
-          this.router.navigate([this.retUrl]);
-        } else {
-          this.router.navigate(["home"]);
-        }
-      });
+  onSubmit() {
+    this.authService.login(this.form.value).subscribe((data) => {
+      if (this.retUrl !== null) {
+        this.router.navigate([this.retUrl]);
+      } else {
+        this.router.navigate(["categories"]);
+      }
+    });
   }
 }

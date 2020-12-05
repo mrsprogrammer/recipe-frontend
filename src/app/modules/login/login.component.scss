@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+}
+
+.field {
+  width: 100%;
+  display: "block";
+  padding-bottom: 10px;
+}

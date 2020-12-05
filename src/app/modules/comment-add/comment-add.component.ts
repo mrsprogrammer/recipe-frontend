@@ -15,8 +15,11 @@ export class CommentAddComponent {
 
   form: FormGroup;
 
-  constructor(fb: FormBuilder, private commentAddService: CommentAddService) {
-    this.form = fb.group({
+  constructor(
+    private fb: FormBuilder,
+    private commentAddService: CommentAddService
+  ) {
+    this.form = this.fb.group({
       content: ["", Validators.required],
     });
   }

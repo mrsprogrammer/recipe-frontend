@@ -1,34 +1,50 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { of } from "rxjs";
-import { map } from "rxjs/operators";
+import { catchError, map, tap } from "rxjs/operators";
+import { GlobalConstants } from "src/app/common/global-constants";
+import { User } from "src/app/model/user";
 
 @Injectable()
 export class AuthService {
   private isloggedIn: boolean;
-  private userName: string;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.isloggedIn = false;
   }
 
-  login(username: string, password: string) {
-    //Assuming users are provided the correct credentials.
-    //In real app you will query the database to verify.
-    this.isloggedIn = true;
-    this.userName = username;
-    return of(this.isloggedIn);
+  login({ login, password }: Pick<User, "login" | "password">) {
+    if (!login || !password) {
+      return;
+    }
+
+    return this.http
+      .post<{ token: string }>(`${GlobalConstants.apiURL}/users/login`, {
+        login,
+        password,
+      })
+      .pipe(
+        tap((response) => {
+          console.log("token", response.token);
+          localStorage.setItem("token", response.token);
+          this.isloggedIn = true;
+          return of(this.isloggedIn);
+        })
+      );
+
+    // return of(this.isloggedIn);
   }
 
   isUserLoggedIn(): boolean {
     return this.isloggedIn;
   }
 
-  isAdminUser(): boolean {
-    if (this.userName == "Admin") {
-      return true;
-    }
-    return false;
-  }
+  // isAdminUser(): boolean {
+  //   if (this.login == "Admin") {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   logoutUser(): void {
     this.isloggedIn = false;

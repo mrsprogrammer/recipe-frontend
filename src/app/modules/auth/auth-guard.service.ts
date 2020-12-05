@@ -20,7 +20,7 @@ export class AuthGuardService implements CanActivate {
       alert(
         "You are not allowed to view this page. You are redirected to login Page"
       );
-
+      console.log("route.url", route.url);
       this.router.navigate(["login"], { queryParams: { retUrl: route.url } });
       return false;
 
