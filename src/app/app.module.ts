@@ -3,16 +3,18 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+// app
 import { AppRoutingModule } from "./app-routing.module";
-// components
 import { AppComponent } from "./app.component";
-import { MenuComponent } from "./layout/menu/menu.component";
-// modules
+// components
+import { MenuComponent } from "./modules/menu/menu.component";
 import { CommentAddComponent } from "./modules/comment-add/comment-add.component";
 import { CommentsComponent } from "./modules/comments/comments.component";
 import { LoginComponent } from "./modules/login/login.component";
 import { RecipesComponent } from "./modules/recipes/recipes.component";
 import { RecipeComponent } from "./modules/recipe/recipe.component";
+import { NotFoundComponent } from "./modules/not-found/not-found.component";
+// services
 import { AuthGuardService } from "./modules/auth/auth-guard.service";
 import { AuthService } from "./modules/auth/auth.service";
 // material
@@ -26,7 +28,6 @@ import { MatListModule } from "@angular/material/list";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import { NotFoundComponent } from "./modules/not-found/not-found.component";
 
 @NgModule({
   declarations: [

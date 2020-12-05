@@ -6,7 +6,7 @@ import { RecipesComponent } from "./modules/recipes/recipes.component";
 import { RecipeComponent } from "./modules/recipe/recipe.component";
 import { GlobalConstants } from "./common/global-constants";
 import { AuthGuardService } from "./modules/auth/auth-guard.service";
-import { MenuComponent } from "./layout/menu/menu.component";
+import { MenuComponent } from "./modules/menu/menu.component";
 import { NotFoundComponent } from "./modules/not-found/not-found.component";
 
 const routes: Routes = [
