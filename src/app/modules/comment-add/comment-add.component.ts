@@ -9,7 +9,7 @@ import { CommentAddService } from "./comment-add.service";
   styleUrls: ["./comment-add.component.scss"],
   providers: [CommentAddService],
 })
-export class CommentAdd {
+export class CommentAddComponent {
   @Input() recipeId: string;
   @Output() addCommentEvent = new EventEmitter<Comment>();
 

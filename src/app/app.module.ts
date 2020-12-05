@@ -8,11 +8,11 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MenuComponent } from "./layout/menu/menu.component";
 // modules
-import { CommentAdd } from "./modules/comment-add/comment-add.component";
-import { Comments } from "./modules/comments/comments.component";
-import { Login } from "./modules/login/login.component";
-import { Recipes } from "./modules/recipes/recipes.component";
-import { Recipe } from "./modules/recipe/recipe.component";
+import { CommentAddComponent } from "./modules/comment-add/comment-add.component";
+import { CommentsComponent } from "./modules/comments/comments.component";
+import { LoginComponent } from "./modules/login/login.component";
+import { RecipesComponent } from "./modules/recipes/recipes.component";
+import { RecipeComponent } from "./modules/recipe/recipe.component";
 import { AuthGuardService } from "./modules/auth/auth-guard.service";
 import { AuthService } from "./modules/auth/auth.service";
 // material
@@ -31,12 +31,12 @@ import { NotFoundComponent } from "./modules/not-found/not-found.component";
 @NgModule({
   declarations: [
     AppComponent,
-    CommentAdd,
-    Comments,
-    Recipes,
-    Recipe,
+    CommentAddComponent,
+    CommentsComponent,
+    RecipesComponent,
+    RecipeComponent,
     MenuComponent,
-    Login,
+    LoginComponent,
     NotFoundComponent,
   ],
   imports: [

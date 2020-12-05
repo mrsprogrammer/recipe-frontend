@@ -11,7 +11,7 @@ import { RecipeService } from "./recipe.service";
   styleUrls: ["./recipe.component.scss"],
   providers: [RecipeService],
 })
-export class Recipe implements OnInit {
+export class RecipeComponent implements OnInit {
   recipe: RecipeModel;
 
   constructor(

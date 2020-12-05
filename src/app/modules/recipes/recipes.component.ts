@@ -11,7 +11,7 @@ import { RecipesService } from "./recipes.service";
   styleUrls: ["./recipes.component.scss"],
   providers: [RecipesService],
 })
-export class Recipes {
+export class RecipesComponent {
   recipes: RecipeModel[] = [];
   categoryRouteParam?: RecipeModel["categoryName"];
 
