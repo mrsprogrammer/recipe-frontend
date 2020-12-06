@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 // app
@@ -14,9 +14,10 @@ import { LoginComponent } from "./modules/login/login.component";
 import { RecipesComponent } from "./modules/recipes/recipes.component";
 import { RecipeComponent } from "./modules/recipe/recipe.component";
 import { NotFoundComponent } from "./modules/not-found/not-found.component";
-// services
+// auth
 import { AuthGuardService } from "./modules/auth/auth-guard.service";
 import { AuthService } from "./modules/auth/auth.service";
+import { AuthHttpInterceptor } from "./modules/auth/auth-http.interceptor";
 // material
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
@@ -59,7 +60,15 @@ import { MatInputModule } from "@angular/material/input";
     MatSidenavModule,
     MatToolbarModule,
   ],
-  providers: [AuthGuardService, AuthService],
+  providers: [
+    AuthGuardService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

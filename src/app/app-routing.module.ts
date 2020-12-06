@@ -15,7 +15,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: "categories",
+    path: "",
     component: MenuComponent,
     canActivate: [AuthGuardService],
     children: [
@@ -44,6 +44,11 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: "legacy" })],
   exports: [RouterModule],
-  providers: [{ provide: APP_BASE_HREF, useValue: GlobalConstants.baseHref }],
+  providers: [
+    {
+      provide: APP_BASE_HREF,
+      useValue: GlobalConstants.baseHref,
+    },
+  ],
 })
 export class AppRoutingModule {}

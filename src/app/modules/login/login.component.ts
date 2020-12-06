@@ -15,7 +15,7 @@ import { AuthService } from "../auth/auth.service";
 })
 export class LoginComponent implements OnInit {
   invalidCredentialMsg: string;
-  retUrl: string = "categories";
+  retUrl: string = "/";
   form: FormGroup;
 
   constructor(
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       if (this.retUrl !== null) {
         this.router.navigate([this.retUrl]);
       } else {
-        this.router.navigate(["categories"]);
+        this.router.navigate(["/"]);
       }
     });
   }
