@@ -1,20 +1,14 @@
 import { Component, OnInit } from "@angular/core";
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from "../auth/auth.service";
 
 @Component({
-  selector: "app-login",
+  selector: "login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  invalidCredentialMsg: string;
   retUrl: string = "/";
   form: FormGroup;
 

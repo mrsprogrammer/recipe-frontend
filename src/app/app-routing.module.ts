@@ -8,11 +8,16 @@ import { GlobalConstants } from "./common/global-constants";
 import { AuthGuardService } from "./modules/auth/auth-guard.service";
 import { MenuComponent } from "./modules/menu/menu.component";
 import { NotFoundComponent } from "./modules/not-found/not-found.component";
+import { RegisterComponent } from "./modules/register/register.component";
 
 const routes: Routes = [
   {
     path: "login",
     component: LoginComponent,
+  },
+  {
+    path: "register",
+    component: RegisterComponent,
   },
   {
     path: "",

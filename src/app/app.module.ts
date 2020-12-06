@@ -15,6 +15,7 @@ import { RecipesComponent } from "./modules/recipes/recipes.component";
 import { RecipeComponent } from "./modules/recipe/recipe.component";
 import { NotFoundComponent } from "./modules/not-found/not-found.component";
 import { LogoutComponent } from "./modules/logout/logout.component";
+import { RegisterComponent } from "./modules/register/register.component";
 // auth
 import { AuthGuardService } from "./modules/auth/auth-guard.service";
 import { AuthService } from "./modules/auth/auth.service";
@@ -42,6 +43,7 @@ import { MatInputModule } from "@angular/material/input";
     LoginComponent,
     NotFoundComponent,
     LogoutComponent,
+    RegisterComponent,
   ],
   imports: [
     AppRoutingModule,

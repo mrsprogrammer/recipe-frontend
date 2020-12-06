@@ -33,26 +33,43 @@ export class AuthService {
       );
   }
 
-  isUserLoggedIn(): boolean {
-    return this.isloggedIn;
-  }
-
   logoutUser(retUrl: string): void {
     this.isloggedIn = false;
-    localStorage.removeItem("token");
+    this.removeToken();
     this.router.navigate(["login"], {
       queryParams: { retUrl },
     });
   }
 
-  getToken() {
-    return localStorage.getItem("token");
+  register({ login, password }: Pick<User, "login" | "password">) {
+    if (!login || !password) {
+      return;
+    }
+
+    return this.http.post<{ token: string }>(
+      `${GlobalConstants.apiURL}/users/register`,
+      {
+        login,
+        password,
+      }
+    );
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.isloggedIn;
   }
 
   setToken(token) {
     localStorage.setItem("token", token);
   }
 
+  removeToken() {
+    localStorage.removeItem("token");
+  }
+
+  getToken() {
+    return localStorage.getItem("token");
+  }
   // isAdminUser(): boolean {
   //   if (this.login == "Admin") {
   //     return true;
