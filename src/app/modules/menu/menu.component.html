@@ -7,7 +7,7 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar class="toolbar">
+    <mat-toolbar class="toolbar__vertical">
       <a mat-list-item routerLink="/"
         ><mat-icon class="icon">restaurant_menu</mat-icon></a
       >
@@ -20,7 +20,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="content">
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="toolbar__horizontal">
       <button
         type="button"
         mat-icon-button
@@ -30,8 +30,11 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Przepisy kulinarne</span>
+      <logout></logout>
     </mat-toolbar>
     <router-outlet></router-outlet>
     <!-- <ng-content></ng-content> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<!-- zrobic logout i dodawanie nowego użytkownika -->

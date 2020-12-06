@@ -17,9 +17,15 @@
   z-index: 1;
 }
 
-.toolbar {
+.toolbar__vertical {
   display: flex;
   justify-content: center;
+}
+
+.toolbar__horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .icon {

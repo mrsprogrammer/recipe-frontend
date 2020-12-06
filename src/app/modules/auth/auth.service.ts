@@ -31,8 +31,6 @@ export class AuthService {
           return of(this.isloggedIn);
         })
       );
-
-    // return of(this.isloggedIn);
   }
 
   isUserLoggedIn(): boolean {
@@ -41,6 +39,7 @@ export class AuthService {
 
   logoutUser(retUrl: string): void {
     this.isloggedIn = false;
+    localStorage.removeItem("token");
     this.router.navigate(["login"], {
       queryParams: { retUrl },
     });
