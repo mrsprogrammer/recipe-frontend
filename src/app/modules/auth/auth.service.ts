@@ -32,9 +32,12 @@ export class AuthService {
   logoutUser(retUrl: string): void {
     this.isloggedIn = false;
     this.removeToken();
-    this.router.navigate(["login"], {
-      queryParams: { retUrl },
-    });
+
+    if (!this.router.url.includes("login")) {
+      this.router.navigate(["login"], {
+        queryParams: { retUrl },
+      });
+    }
   }
 
   register({ login, password }: Pick<User, "login" | "password">) {
