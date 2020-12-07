@@ -66,10 +66,4 @@ export class AuthService {
   getToken() {
     return localStorage.getItem("token");
   }
-  // isAdminUser(): boolean {
-  //   if (this.login == "Admin") {
-  //     return true;
-  //   }
-  //   return false;
-  // }
 }

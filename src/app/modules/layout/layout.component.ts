@@ -4,11 +4,11 @@ import { Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
 
 @Component({
-  selector: "app-menu",
-  templateUrl: "./menu.component.html",
-  styleUrls: ["./menu.component.scss"],
+  selector: "app-layout",
+  templateUrl: "./layout.component.html",
+  styleUrls: ["./layout.component.scss"],
 })
-export class MenuComponent {
+export class LayoutComponent {
   @ContentChildren(Component) contentChildren;
 
   isHandset$: Observable<boolean> = this.breakpointObserver

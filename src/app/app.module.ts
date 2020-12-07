@@ -4,22 +4,22 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 // app
-import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app-routing.module";
 // components
-import { MenuComponent } from "./modules/menu/menu.component";
 import { CommentAddComponent } from "./modules/comment-add/comment-add.component";
 import { CommentsComponent } from "./modules/comments/comments.component";
+import { LayoutComponent } from "./modules/layout/layout.component";
 import { LoginComponent } from "./modules/login/login.component";
-import { RecipesComponent } from "./modules/recipes/recipes.component";
-import { RecipeComponent } from "./modules/recipe/recipe.component";
-import { NotFoundComponent } from "./modules/not-found/not-found.component";
 import { LogoutComponent } from "./modules/logout/logout.component";
+import { NotFoundComponent } from "./modules/not-found/not-found.component";
+import { RecipeComponent } from "./modules/recipe/recipe.component";
+import { RecipesComponent } from "./modules/recipes/recipes.component";
 import { RegisterComponent } from "./modules/register/register.component";
 // auth
 import { AuthGuardService } from "./modules/auth/auth-guard.service";
-import { AuthService } from "./modules/auth/auth.service";
 import { AuthHttpInterceptor } from "./modules/auth/auth-http.interceptor";
+import { AuthService } from "./modules/auth/auth.service";
 // material
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
@@ -37,23 +37,23 @@ import { MatInputModule } from "@angular/material/input";
     AppComponent,
     CommentAddComponent,
     CommentsComponent,
-    RecipesComponent,
-    RecipeComponent,
-    MenuComponent,
+    LayoutComponent,
     LoginComponent,
-    NotFoundComponent,
     LogoutComponent,
+    NotFoundComponent,
+    RecipeComponent,
+    RecipesComponent,
     RegisterComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    NoopAnimationsModule,
-    HttpClientModule,
     FormsModule,
+    HttpClientModule,
+    LayoutModule,
+    NoopAnimationsModule,
     ReactiveFormsModule,
     // material modules
-    LayoutModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,

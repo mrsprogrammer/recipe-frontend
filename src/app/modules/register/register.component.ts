@@ -4,7 +4,6 @@ import { Router } from "@angular/router";
 import { AuthService } from "../auth/auth.service";
 
 // pokazać komunikaty błędu i sukcesu
-// wszystkie komponenty mają mieć selector z prefixem app-
 @Component({
   selector: "app-register",
   templateUrl: "./register.component.html",
