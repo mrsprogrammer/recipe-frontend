@@ -16,6 +16,7 @@ import { NotFoundComponent } from "./modules/not-found/not-found.component";
 import { RecipeComponent } from "./modules/recipe/recipe.component";
 import { RecipesComponent } from "./modules/recipes/recipes.component";
 import { RegisterComponent } from "./modules/register/register.component";
+import { SnackBarService } from "./modules/snack-bar/snack-bar.service";
 // auth
 import { AuthGuardService } from "./modules/auth/auth-guard.service";
 import { AuthHttpInterceptor } from "./modules/auth/auth-http.interceptor";
@@ -31,6 +32,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { MatInputModule } from "@angular/material/input";
     MatInputModule,
     MatListModule,
     MatSidenavModule,
+    MatSnackBarModule,
     MatToolbarModule,
   ],
   providers: [
@@ -72,6 +75,7 @@ import { MatInputModule } from "@angular/material/input";
       useClass: AuthHttpInterceptor,
       multi: true,
     },
+    SnackBarService,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,5 +1,6 @@
-import { Component, NgModule, OnInit } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { Subscription } from "rxjs";
 import { switchMap } from "rxjs/operators";
 import { GlobalConstants } from "../../common/global-constants";
 import { Recipe as RecipeModel } from "../../model/recipe";
@@ -11,14 +12,15 @@ import { RecipeService } from "./recipe.service";
   styleUrls: ["./recipe.component.scss"],
   providers: [RecipeService],
 })
-export class RecipeComponent implements OnInit {
+export class RecipeComponent implements OnDestroy {
   recipe: RecipeModel;
+  subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
     private recipeService: RecipeService
   ) {
-    this.route.params
+    this.subscription = this.route.params
       .pipe(switchMap(({ id }) => this.recipeService.getRecipe(id)))
       .subscribe(({ image, ...rest }) => {
         this.recipe = {
@@ -28,5 +30,7 @@ export class RecipeComponent implements OnInit {
       });
   }
 
-  ngOnInit() {}
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

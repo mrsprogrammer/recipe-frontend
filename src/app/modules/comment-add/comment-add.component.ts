@@ -1,6 +1,14 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  Output,
+} from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Subscription } from "rxjs";
 import { Comment } from "../../model/comment";
+import { SnackBarService } from "../snack-bar/snack-bar.service";
 import { CommentAddService } from "./comment-add.service";
 
 @Component({
@@ -9,15 +17,17 @@ import { CommentAddService } from "./comment-add.service";
   styleUrls: ["./comment-add.component.scss"],
   providers: [CommentAddService],
 })
-export class CommentAddComponent {
+export class CommentAddComponent implements OnDestroy {
   @Input() recipeId: string;
   @Output() addCommentEvent = new EventEmitter<Comment>();
 
   form: FormGroup;
+  subscription: Subscription;
 
   constructor(
+    private commentAddService: CommentAddService,
     private fb: FormBuilder,
-    private commentAddService: CommentAddService
+    private snackBar: SnackBarService
   ) {
     this.form = this.fb.group({
       content: ["", Validators.required],
@@ -25,10 +35,23 @@ export class CommentAddComponent {
   }
 
   onSubmit() {
-    this.commentAddService
-      .addComment({ id_recipe: this.recipeId.toString(), ...this.form.value })
-      .subscribe((newComment) => {
-        this.addCommentEvent.emit(newComment);
-      });
+    this.subscription = this.commentAddService
+      .addComment({
+        id_recipe: this.recipeId.toString(),
+        ...this.form.value,
+      })
+      .subscribe(
+        (newComment) => {
+          this.addCommentEvent.emit(newComment);
+          this.snackBar.open("Komentarz został dodany.", "success");
+        },
+        () => {
+          this.snackBar.open("Nie udało się dodać komentarza.", "error");
+        }
+      );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

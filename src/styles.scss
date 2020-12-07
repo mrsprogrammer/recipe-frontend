@@ -45,6 +45,16 @@ p {
   max-width: 450px;
 }
 
+.error {
+  background-color: rgb(204, 95, 95);
+  color: white;
+}
+
+.success {
+  background-color: rgb(49, 126, 49);
+  color: white;
+}
+
 @media (max-width: 1200px) {
   .grid-container {
     grid-template-columns: 50% 50%;

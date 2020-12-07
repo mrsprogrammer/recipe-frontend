@@ -1,22 +1,24 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { Subscription } from "rxjs";
 import { AuthService } from "../auth/auth.service";
+import { SnackBarService } from "../snack-bar/snack-bar.service";
 
-// pokazać komunikaty błędu i sukcesu
 @Component({
   selector: "app-register",
   templateUrl: "./register.component.html",
   styleUrls: ["./register.component.scss"],
 })
-export class RegisterComponent {
-  retUrl: string = "/";
+export class RegisterComponent implements OnDestroy {
   form: FormGroup;
+  subscription: Subscription;
 
   constructor(
-    private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private fb: FormBuilder,
+    private router: Router,
+    private snackBar: SnackBarService
   ) {
     this.form = this.fb.group({
       login: ["", Validators.required],
@@ -25,8 +27,21 @@ export class RegisterComponent {
   }
 
   onSubmit() {
-    this.authService.register(this.form.value).subscribe(() => {
-      this.router.navigate(["/login"]);
-    });
+    if (!this.form.value.login || !this.form.value.password) {
+      return;
+    }
+    this.subscription = this.authService.register(this.form.value).subscribe(
+      () => {
+        this.snackBar.open("Zostałeś zarejestrowany.", "success");
+        this.router.navigate(["/login"]);
+      },
+      () => {
+        this.snackBar.open("Rejestracja nie powiodła się.", "error");
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

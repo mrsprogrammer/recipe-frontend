@@ -6,14 +6,12 @@ import { Comment as CommentModel } from "../../model/comment";
   templateUrl: "./comments.component.html",
   styleUrls: ["./comments.component.scss"],
 })
-export class CommentsComponent implements OnInit {
+export class CommentsComponent {
   @Input() recipeId: string;
   @Input() comments: CommentModel[];
   isCommentAddFormOpened: boolean = false;
 
   constructor() {}
-
-  ngOnInit() {}
 
   addComment(comment: CommentModel) {
     this.comments.push(comment);
