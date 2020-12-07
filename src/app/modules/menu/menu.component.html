@@ -27,14 +27,11 @@
         (click)="drawer.toggle()"
         *ngIf="isHandset$ | async"
       >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <mat-icon>menu</mat-icon>
       </button>
       <span>Przepisy kulinarne</span>
-      <logout></logout>
+      <app-logout></app-logout>
     </mat-toolbar>
     <router-outlet></router-outlet>
-    <!-- <ng-content></ng-content> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-<!-- zrobic logout i dodawanie nowego użytkownika -->

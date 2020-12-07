@@ -15,10 +15,6 @@ export class AuthService {
   }
 
   login({ login, password }: Pick<User, "login" | "password">) {
-    if (!login || !password) {
-      return;
-    }
-
     return this.http
       .post<{ token: string }>(`${GlobalConstants.apiURL}/users/login`, {
         login,

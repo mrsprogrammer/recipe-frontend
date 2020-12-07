@@ -1,6 +1,10 @@
-<div class="wrapper">
-  <mat-card class="card">
-    <mat-card-content>
+<div class="login-window">
+  <mat-card class="login-card">
+    <mat-card-content class="content">
+      <div class="logo">
+        <mat-icon class="icon" color="primary">restaurant_menu</mat-icon>
+        <span class="title"> Przepisy kulinarne</span>
+      </div>
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
         <mat-form-field appearance="outline" class="field">
           <input

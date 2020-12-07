@@ -3,7 +3,7 @@ import { AuthService } from "../auth/auth.service";
 import { Location } from "@angular/common";
 
 @Component({
-  selector: "logout",
+  selector: "app-logout",
   templateUrl: "./logout.component.html",
   styleUrls: ["./logout.component.scss"],
 })

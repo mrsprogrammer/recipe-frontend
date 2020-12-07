@@ -7,11 +7,11 @@
         <mat-divider></mat-divider>
       </mat-list-item>
     </mat-list>
-    <comment-add
+    <app-comment-add
       [recipeId]="recipeId"
       *ngIf="isCommentAddFormOpened"
       (addCommentEvent)="addComment($event)"
-    ></comment-add>
+    ></app-comment-add>
   </mat-card-content>
   <mat-card-actions class="actions">
     <button (click)="openCommentAddForm()" mat-raised-button color="primary">

@@ -6,7 +6,7 @@ import { Recipe as RecipeModel } from "../../model/recipe";
 import { RecipeService } from "./recipe.service";
 
 @Component({
-  selector: "recipe",
+  selector: "app-recipe",
   templateUrl: "./recipe.component.html",
   styleUrls: ["./recipe.component.scss"],
   providers: [RecipeService],

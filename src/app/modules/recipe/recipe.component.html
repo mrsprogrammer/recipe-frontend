@@ -25,7 +25,10 @@
   </div>
   <div class="grid-container">
     <div class="grid-item grid-item__colspan-4">
-      <comments [recipeId]="recipe.id" [comments]="recipe.comments"></comments>
+      <app-comments
+        [recipeId]="recipe.id"
+        [comments]="recipe.comments"
+      ></app-comments>
     </div>
   </div>
 </div>

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { Comment as CommentModel } from "../../model/comment";
 
 @Component({
-  selector: "comments",
+  selector: "app-comments",
   templateUrl: "./comments.component.html",
   styleUrls: ["./comments.component.scss"],
 })

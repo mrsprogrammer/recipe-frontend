@@ -4,7 +4,7 @@ import { Comment } from "../../model/comment";
 import { CommentAddService } from "./comment-add.service";
 
 @Component({
-  selector: "comment-add",
+  selector: "app-comment-add",
   templateUrl: "./comment-add.component.html",
   styleUrls: ["./comment-add.component.scss"],
   providers: [CommentAddService],

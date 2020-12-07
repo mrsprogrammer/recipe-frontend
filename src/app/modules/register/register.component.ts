@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthService } from "../auth/auth.service";
 
-// może jeden plik do styli wrappera
 // pokazać komunikaty błędu i sukcesu
 // wszystkie komponenty mają mieć selector z prefixem app-
 @Component({

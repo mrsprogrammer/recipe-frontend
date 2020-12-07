@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from "../auth/auth.service";
 
 @Component({
-  selector: "login",
+  selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"],
 })
@@ -31,7 +31,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.login(this.form.value).subscribe((data) => {
+    if (!this.form.value.login || !this.form.value.password) {
+      return;
+    }
+    this.authService.login(this.form.value).subscribe(() => {
       if (this.retUrl !== null) {
         this.router.navigate([this.retUrl]);
       } else {
