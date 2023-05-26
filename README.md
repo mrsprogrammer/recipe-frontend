@@ -7,19 +7,19 @@
 - możliwość przeglądania wylistowanych przepisów kulinarnych podzielonych na kategorie
 - możliwość dodania komentarza do przepisu
 - responsywność
-- 
+
 ### Wymagania środowiskowe:
 - instalacja środowiska Node.js w wersji >12
 - instalacja menadżera pakietów Yarn
 - instalacja Angular CLI: yarn add global @angular/cli
-- 
+
 ### Użyte technologie:
-• Node.js 12
-• Yarn
-• Angular 11
-• Angular Material UI
-• RxJS
-• TypeScript
+• Node.js 12\
+• Yarn\
+• Angular 11\
+• Angular Material UI\
+• RxJS\
+• TypeScript\
 • Sass
 
 ### Uruchomienie:
@@ -28,21 +28,19 @@
 3. Otwarcie w przeglądarce pod adresem: http://localhost:4200/
 
 ### Pliki konfiguracyjne:
-W app/common/global-constans konfiguracja stałych:
-public static apiURL: string = "http://localhost:8080/api";
-public static imagesURL: string = "http://localhost:8080/img";
+W app/common/global-constans konfiguracja stałych: \
+public static apiURL: string = "http://localhost:8080/api"; \
+public static imagesURL: string = "http://localhost:8080/img"; \
 public static baseHref: string = "/recipes";
 
 ### Routing aplikacji:
 W app/app-routing.module.ts znajduje się konfiguracja routingu.
 
 ### Funkcjonalności:
-1. Rejestracja użytkownika/logowanie
-Logika dotycząca autoryzacji i uwierzytelniania użytkownika znajduje się w app/modules/auth:
-• auth.service – obsługa logowania, wylogowania, rejestracji oraz zapis, odczyt token z
-localStorage
-• auth-http.interceptor – ustawianie http.header:
-Authorization: `Bearer ${this.authService.getToken()}`
+Rejestracja użytkownika/logowanie\ 
+Logika dotycząca autoryzacji i uwierzytelniania użytkownika znajduje się w app/modules/auth:\
+• auth.service – obsługa logowania, wylogowania, rejestracji oraz zapis, odczyt token z localStorage \
+• auth-http.interceptor – ustawianie http.header: Authorization: `Bearer ${this.authService.getToken()}` \
 • auth-guard.service – interfejs weryfikujący dostęp dla ścieżki przeglądarki
 
 
