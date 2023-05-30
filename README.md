@@ -43,9 +43,15 @@ Logika dotycząca autoryzacji i uwierzytelniania użytkownika znajduje się w ap
 • auth.service – obsługa logowania, wylogowania, rejestracji oraz zapis, odczyt token z localStorage \
 • auth-http.interceptor – ustawianie http.header: Authorization: `Bearer ${this.authService.getToken()}` \
 • auth-guard.service – interfejs weryfikujący dostęp dla ścieżki przeglądarki
-
-
-
+\
+\
+\
+\
+\
+\
+\
+\
+\
 #### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
