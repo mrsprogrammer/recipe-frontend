@@ -1,5 +1,6 @@
 # Przepisy kulinarne
 ## Aplikacja SPA z użyciem frameworka Angular 11
+(backend aplikacji w projekcie recipe-backend)
 
 ### Założenia:
 - możliwośc rejestracji użytkownika
