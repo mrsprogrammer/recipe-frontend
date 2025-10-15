@@ -1,20 +1,20 @@
-# Przepisy kulinarne
-## Aplikacja SPA z użyciem frameworka Angular 11
-(backend aplikacji w projekcie recipe-backend)
+# Recipes
+## SPA Application using Angular 11 Framework
+(backend of the application is in the recipe-backend project)
 
-### Założenia:
-- możliwośc rejestracji użytkownika
-- logowanie
-- możliwość przeglądania wylistowanych przepisów kulinarnych podzielonych na kategorie
-- możliwość dodania komentarza do przepisu
-- responsywność
+### Assumptions:
+- User registration
+- User login
+- Browsing listed recipes divided into categories
+- Adding comments to recipes
+- Responsiveness
 
-### Wymagania środowiskowe:
-- instalacja środowiska Node.js w wersji >12
-- instalacja menadżera pakietów Yarn
-- instalacja Angular CLI: yarn add global @angular/cli
+### Environment Requirements:
+- Installation of Node.js version >12
+- Installation of Yarn package manager
+- Installation of Angular CLI: yarn add global @angular/cli
 
-### Użyte technologie:
+### Technologies Used:
 • Node.js 12\
 • Yarn\
 • Angular 11\
@@ -23,35 +23,28 @@
 • TypeScript\
 • Sass
 
-### Uruchomienie:
-1. Wywołane w katalogu /src polecenia pobierającego pakiety: yarn install
-2. Uruchomienie projektu: yarn start
-3. Otwarcie w przeglądarce pod adresem: http://localhost:4200/
+### Running the Application:
+1. Run the command to install packages in the `/src` directory: yarn install
+2. Start the project: yarn start
+3. Open in the browser at: http://localhost:4200/
 
-### Pliki konfiguracyjne:
-W app/common/global-constans konfiguracja stałych: \
-public static apiURL: string = "http://localhost:8080/api"; \
-public static imagesURL: string = "http://localhost:8080/img"; \
+### Configuration Files:
+In `app/common/global-constants`, configuration of constants:\
+public static apiURL: string = "http://localhost:8080/api";\
+public static imagesURL: string = "http://localhost:8080/img";\
 public static baseHref: string = "/recipes";
 
-### Routing aplikacji:
-W app/app-routing.module.ts znajduje się konfiguracja routingu.
+### Application Routing:
+The routing configuration is located in `app/app-routing.module.ts`.
 
-### Funkcjonalności:
-Rejestracja użytkownika/logowanie\ 
-Logika dotycząca autoryzacji i uwierzytelniania użytkownika znajduje się w app/modules/auth:\
-• auth.service – obsługa logowania, wylogowania, rejestracji oraz zapis, odczyt token z localStorage \
-• auth-http.interceptor – ustawianie http.header: Authorization: `Bearer ${this.authService.getToken()}` \
-• auth-guard.service – interfejs weryfikujący dostęp dla ścieżki przeglądarki
-\
-\
-\
-\
-\
-\
-\
-\
-\
+### Features:
+User registration/login\
+The logic for user authentication and authorization is located in `app/modules/auth`:\
+• `auth.service` – handles login, logout, registration, and token storage/retrieval from localStorage\
+• `auth-http.interceptor` – sets `http.header: Authorization: Bearer ${this.authService.getToken()}`\
+• `auth-guard.service` – interface for verifying access to browser paths
+
+### Angular Framework
 #### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -74,4 +67,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 #### Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more help on the Angular CLI, use `ng help` or check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
