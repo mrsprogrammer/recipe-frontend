@@ -1,6 +1,5 @@
 # Recipes
 ## SPA Application using Angular 11 Framework
-(backend of the application is in the recipe-backend project)
 
 ### Assumptions:
 - User registration
@@ -10,14 +9,14 @@
 - Responsiveness
 
 ### Environment Requirements:
-- Installation of Node.js version >12
+- Installation of Node.js version >=20
 - Installation of Yarn package manager
 - Installation of Angular CLI: yarn add global @angular/cli
 
 ### Technologies Used:
-• Node.js 12\
+• Node.js 20\
 • Yarn\
-• Angular 11\
+• Angular 14\
 • Angular Material UI\
 • RxJS\
 • TypeScript\
