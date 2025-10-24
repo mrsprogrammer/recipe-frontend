@@ -5,7 +5,7 @@ import {
   OnDestroy,
   Output,
 } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { Subscription } from "rxjs";
 import { Comment } from "../../model/comment";
 import { SnackBarService } from "../snack-bar/snack-bar.service";
@@ -21,12 +21,12 @@ export class CommentAddComponent implements OnDestroy {
   @Input() recipeId: string;
   @Output() addCommentEvent = new EventEmitter<Comment>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   subscription: Subscription;
 
   constructor(
     private commentAddService: CommentAddService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private snackBar: SnackBarService
   ) {
     this.form = this.fb.group({

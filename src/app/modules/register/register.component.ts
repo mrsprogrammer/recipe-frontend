@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { AuthService } from "../auth/auth.service";
@@ -11,12 +11,12 @@ import { SnackBarService } from "../snack-bar/snack-bar.service";
   styleUrls: ["./register.component.scss"],
 })
 export class RegisterComponent implements OnDestroy {
-  form: FormGroup;
+  form: UntypedFormGroup;
   subscription: Subscription;
 
   constructor(
     private authService: AuthService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private router: Router,
     private snackBar: SnackBarService
   ) {
